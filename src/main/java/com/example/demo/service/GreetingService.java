@@ -37,4 +37,12 @@ public class GreetingService {
         greetingList.add(greeting);
         return greeting;
     }
+    public Greeting getGreetingById(Long id) {
+        for (Greeting g : greetingList) {
+            if (g.getId().equals(id)) {
+                return g;
+            }
+        }
+        return null; // if not found
+    }
 }
