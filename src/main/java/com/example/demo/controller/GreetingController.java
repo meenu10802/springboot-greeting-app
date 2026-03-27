@@ -19,3 +19,11 @@ public class GreetingController {
         return greetingService.getGreetingMessage();
     }
 }
+@GetMapping("/custom")
+public String getCustomGreeting(
+        @RequestParam(required = false) String firstName,
+        @RequestParam(required = false) String lastName) {
+
+    return greetingService.getCustomGreeting(firstName, lastName);
+}
+}
