@@ -2,6 +2,7 @@ package com.example.demo.controller;
 
 import com.example.demo.service.GreetingService;
 import org.springframework.web.bind.annotation.*;
+import com.example.demo.model.Greeting;
 
 @RestController
 @RequestMapping("/greeting")
@@ -26,4 +27,7 @@ public String getCustomGreeting(
 
     return greetingService.getCustomGreeting(firstName, lastName);
 }
+@PostMapping("/save")
+public Greeting saveGreeting(@RequestParam String message) {
+    return greetingService.saveGreeting(message);
 }
