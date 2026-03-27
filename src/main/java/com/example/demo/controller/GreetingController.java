@@ -1,32 +1,21 @@
 package com.example.demo.controller;
 
+import com.example.demo.service.GreetingService;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/greeting")
 public class GreetingController {
 
-    // GET method
+    private final GreetingService greetingService;
+
+    // Constructor Injection
+    public GreetingController(GreetingService greetingService) {
+        this.greetingService = greetingService;
+    }
+
     @GetMapping
     public String getGreeting() {
-        return "Hello from GET";
-    }
-
-    // POST method
-    @PostMapping
-    public String postGreeting() {
-        return "Hello from POST";
-    }
-
-    // PUT method
-    @PutMapping
-    public String putGreeting() {
-        return "Hello from PUT";
-    }
-
-    // DELETE method
-    @DeleteMapping
-    public String deleteGreeting() {
-        return "Hello from DELETE";
+        return greetingService.getGreetingMessage();
     }
 }
