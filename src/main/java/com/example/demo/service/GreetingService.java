@@ -45,4 +45,7 @@ public class GreetingService {
         }
         return null; // if not found
     }
+    public List<Greeting> getAllGreetings() {
+        return greetingList;
+    }
 }
