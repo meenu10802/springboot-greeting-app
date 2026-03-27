@@ -48,4 +48,15 @@ public class GreetingService {
     public List<Greeting> getAllGreetings() {
         return greetingList;
     }
+    public Greeting updateGreeting(Long id, String message) {
+        for (Greeting g : greetingList) {
+            if (g.getId().equals(id)) {
+                // create new object with same id but updated message
+                Greeting updated = new Greeting(id, message);
+                greetingList.set(greetingList.indexOf(g), updated);
+                return updated;
+            }
+        }
+        return null;
+    }
 }
